@@ -1,25 +1,24 @@
 // Вариант 14. Иерархия «Печатные издания»
-// Базовый класс Publication: title, publisher, year. Метод read(). Подкласс Book: pagesCount. Переопределение read(). Подкласс Magazine: issueNumber. Переопределение read().
-
 public class OOP_Laba3 {
     public static class Publication {
-        private String title;
-        private String publisher;
-        private int year;
+        public String title;
+        public String publisher;
+        public int year;
         public Publication(String title, String publisher, int year){
             this.title = title;
             this.publisher = publisher;
             this.year = year;
         }
         public String read(boolean read){
-            if (read){ 
-                return "Читал"; 
+            if (read == false){ 
+                return "Не читал"; 
             }
-            return "Не читал";
+            return "Читал";
         }
         public String getDescription(){
             return "Название: \"" + title + "\"  Автор: " + publisher + " Год выпуска: " + year + " год";
         }
+    }
     public static class Book_pagesCount extends Publication{
         private int pageCount;
         public Book_pagesCount(String title, String publisher, int year, int pageCount){
@@ -28,15 +27,14 @@ public class OOP_Laba3 {
         }
         @Override
         public String read(boolean read){
-            if (read){ 
-                System.out.println("Сколько страниц прочитал?"); 
+            if (read == false){ 
+                return "Не читал"; 
             }
-            return "Не читал";
+            return "Сколько страниц прочитал?";
         }
         @Override
-        public String getDescription(){
-            
-            return "Название: \"" + title + "\"  Автор: " + publisher + " Год выпуска: " + year + " год";
+        public  String getDescription(){
+            return "Название: \"" + title + "\"  Автор: " + publisher + " Год выпуска: " + year + " год. Страниц прочитано: " + pageCount;
         }
     }
     public static class Magazine_issueNumber extends Publication{
@@ -47,12 +45,15 @@ public class OOP_Laba3 {
         }
         @Override
         public String read(boolean read){
-            if (read){ 
-                System.out.println("Какое количество ошибок?"); 
+            if (read == false){ 
+                return "Не читал"; 
             }
-            return "Не читал";
+            return "Какой это выпуск?";
         }
-    }
+        @Override
+        public String getDescription(){
+            return "Название: \"" + title + "\"  Автор: " + publisher + " Год выпуска: " + year + " год. Выпуск: " + issueNumber;
+        }
     }
     public static void main(String[] args){
         Publication[] publications = {
@@ -61,7 +62,7 @@ public class OOP_Laba3 {
             new Magazine_issueNumber("Преступление и наказание", "Достоевский Ф.М.", 1866, 5)
         };
         for (Publication p : publications){
-            System.out.println(p.); 
+            System.out.println(p.getDescription() + " , " + p.read(true)); 
         }
     }
 }
