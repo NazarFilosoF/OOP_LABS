@@ -1,0 +1,17 @@
+[ {
+  "id" : 1,
+  "name" : "Гранд Отель",
+  "city" : "Москва",
+  "stars" : 5,
+  "roomsCount" : 300,
+  "rating" : 9.8,
+  "addedDate" : "2026-01-11"
+}, {
+  "id" : 2,
+  "name" : "Ибис",
+  "city" : "Санкт-Петербург",
+  "stars" : 3,
+  "roomsCount" : 150,
+  "rating" : 8.2,
+  "addedDate" : "2026-01-11"
+} ]
